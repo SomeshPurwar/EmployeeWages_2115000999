@@ -36,5 +36,15 @@ let empWage=empHrs*WAGE_PER_HOUR;
 console.log("Emp Wages:"+ empWage);
 
 
+// UC4 : Calculating Wages for a month
+
+const NUM_OF_WORKING_DAYS=20;
+empHrs=0;
+for(let day=1;day<=NUM_OF_WORKING_DAYS;day++){
+    empHrs+=getWorkingHours(empCheck);  
+}
+
+empWage=empHrs*WAGE_PER_HOUR;
+console.log("Total Hrs:"+empHrs+" Emp Wage:"+ empWage);
 
 
