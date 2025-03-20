@@ -54,15 +54,20 @@ let totalWorkingDays=0;
 
 //UC6: Store the Daily Wage along with the Total Wage - Save in an Array the Daily
 let empDailyWageArr=new Array();
+//UC8
+let empDailyWageMap=new Map();
 
 while(totalEmpHrs<MAX_HRS_IN_MONTH && totalWorkingDays<NUM_OF_WORKING_DAYS){
     totalWorkingDays++;
     totalEmpHrs+=getWorkingHours(empCheck);
     let empHrs=getWorkingHours(empCheck);
     empDailyWageArr.push(empHrs*WAGE_PER_HOUR);
+    empDailyWageMap.set(totalWorkingDays, empHrs*WAGE_PER_HOUR )
 }
 empWage=totalEmpHrs*WAGE_PER_HOUR;
 console.log("UC-6- Total Days: "+totalWorkingDays+" Total Hrs: "+totalEmpHrs+" Emp Wages: "+ empWage);
+
+console.log("UC8 \n"+empDailyWageMap);
 
 //UC7
 //UC7A: Calc total Wage using Array forEach or reduce method
@@ -78,6 +83,7 @@ function totalWages(totalWage,dailyWage){
     return totalWage+dailyWage;
 }
 console.log("UC7A Emp wage with reduce "+ empDailyWageArr.reduce(totalWages,0));
+console.log("UC8 Emp wage with Map: "+Array.from(empDailyWageMap.values()).reduce(totalWages,0))
 
 //UC7B: Show the Day along with Daily Wage using Array map helper function
 
@@ -119,3 +125,4 @@ function totalDayWorked(numOfDays,dailyWage){
     return numOfDays;
 }
 console.log("UC7G Number of Days Employ worked:"+empDailyWageArr.reduce(totalDayWorked,0));
+
