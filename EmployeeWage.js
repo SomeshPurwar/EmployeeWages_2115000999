@@ -51,9 +51,15 @@ console.log("Total Hrs:"+empHrs+" Emp Wage:"+ empWage);
 const MAX_HRS_IN_MONTH=160;
 let totalEmpHrs=0;
 let totalWorkingDays=0;
+
+//UC6: Store the Daily Wage along with the Total Wage - Save in an Array the Daily
+let empDailyWageArr=new Array();
+
 while(totalEmpHrs<MAX_HRS_IN_MONTH && totalWorkingDays<NUM_OF_WORKING_DAYS){
     totalWorkingDays++;
     totalEmpHrs+=getWorkingHours(empCheck);
+    let empHrs=getWorkingHours(empCheck);
+    empDailyWageArr.push(empHrs*WAGE_PER_HOUR);
 }
 empWage=totalEmpHrs*WAGE_PER_HOUR;
-console.log("UC-5- Total Days: "+totalWorkingDays+" Total Hrs: "+totalEmpHrs+" Emp Wages: "+ empWage);
+console.log("UC-6- Total Days: "+totalWorkingDays+" Total Hrs: "+totalEmpHrs+" Emp Wages: "+ empWage);
